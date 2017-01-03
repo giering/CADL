@@ -13,36 +13,34 @@ This course introduces you to deep learning: the state-of-the-art approach to bu
 
 # Schedule
 
-Course runs July 21, 2016 - December 31, 2016
-
-## Session 1: Introduction To Tensorflow (July 21, 2016) 
+## Session 1: Introduction To Tensorflow
 We'll cover the importance of data with machine and deep learning algorithms, the basics of creating a dataset, how to preprocess datasets, then jump into Tensorflow, a library for creating computational graphs built by Google Research. We'll learn the basic components of Tensorflow and see how to use it to filter images.
 
-## Session 2: Training A Network W/ Tensorflow (August 2, 2016) 
+## Session 2: Training A Network W/ Tensorflow
 We'll see how neural networks work, how they are "trained", and see the basic components of training a neural network. We'll then build our first neural network and use it for a fun application of teaching a neural network how to paint an image, and explore such a network can be extended to produce different aesthetics.
 
-## Session 3: Unsupervised And Supervised Learning (August 18, 2016) 
+## Session 3: Unsupervised And Supervised Learning
 We explore deep neural networks capable of encoding a large dataset, and see how we can use this encoding to explore "latent" dimensions of a dataset or for generating entirely new content. We'll see what this means, how "autoencoders" can be built, and learn a lot of state-of-the-art extensions that make them incredibly powerful. We'll also learn about another type of model that performs discriminative learning and see how this can be used to predict labels of an image.
 
-## Session 4: Visualizing And Hallucinating Representations (August 30, 2016) 
+## Session 4: Visualizing And Hallucinating Representations
 This sessions works with state of the art networks and sees how to understand what "representations" they learn. We'll see how this process actually allows us to perform some really fun visualizations including "Deep Dream" which can produce infinite generative fractals, or "Style Net" which allows us to combine the content of one image and the style of another to produce widely different painterly aesthetics automatically.
 
-## Session 5: Generative Models (September 13, 2016) 
+## Session 5: Generative Models
 The last session offers a teaser into some of the future directions of generative modeling, including some state of the art models such as the "generative adversarial network", and its implementation within a "variational autoencoder", which allows for some of the best encodings and generative modeling of datasets that currently exist. We also see how to begin to model time, and give neural networks memory by creating "recurrent neural networks" and see how to use such networks to create entirely generative text.
 
 # Github Contents Overview
 
 This github contains lecture transcripts from the Kadenze videos and homeworks contained in Jupyter Notebooks in the following folders:
 
-| | Session | Description |
-| --- | --- | --- |
-|Installation| **[Installation](#installation-preliminaries)** | Setting up Python/Notebook and necessary Libraries. |
-|Preliminaries| **[Preliminaries with Python](session-0)** | Basics of working with Python and images. |
-|1| **[Computing with Tensorflow](session-1)** | Working with a small dataset of images.  Dataset preprocessing.  Tensorflow basics.  Sorting/organizing a dataset. |
-|2| **[Basics of Neural Networks](session-2)** | Learn how to create a Neural Network.  Learn to use a neural network to paint an image.  Apply creative thinking to the inputs, outputs, and definition of a network. |
-|3| **[Unsupervised and Supervised Learning](session-3)** | Build an autoencoder.  Extend it with convolution, denoising, and variational layers.  Build a deep classification network.  Apply softmax and onehot encodings to classify audio using a Deep Convolutional Network. |
-|4| **[Visualizing Representations](session-4)** | Visualize backpropped gradients, use them to create Deep Dream, extend Deep Dream w/ regularization.  Stylize images or synthesize new images with painterly or hallucinated aesthetics of another image. |
-|5| **[TBA](session-5)** | TBA. |
+| | Session | Description | Transcript | Homework |
+| --- | --- | --- | --- | --- |
+|Installation| **[Installation](#installation-preliminaries)** | Setting up Python/Notebook and necessary Libraries. | N/A | N/A |
+|Preliminaries| **[Preliminaries with Python](session-0)** | Basics of working with Python and images. | N/A | N/A |
+|1| **[Computing with Tensorflow](session-1)** | Working with a small dataset of images.  Dataset preprocessing.  Tensorflow basics.  Sorting/organizing a dataset. | [lecture-1.ipynb](session-1/lecture-1.ipynb) | [session-1.ipynb](session-1/session-1.ipynb) |
+|2| **[Basics of Neural Networks](session-2)** | Learn how to create a Neural Network.  Learn to use a neural network to paint an image.  Apply creative thinking to the inputs, outputs, and definition of a network. | [lecture-2.ipynb](session-2/lecture-2.ipynb) | [session-2.ipynb](session-2/session-2.ipynb) |
+|3| **[Unsupervised and Supervised Learning](session-3)** | Build an autoencoder.  Extend it with convolution, denoising, and variational layers.  Build a deep classification network.  Apply softmax and onehot encodings to classify audio using a Deep Convolutional Network. | [lecture-3.ipynb](session-3/lecture-3.ipynb) | [session-3.ipynb](session-3/session-3.ipynb) |
+|4| **[Visualizing Representations](session-4)** | Visualize backpropped gradients, use them to create Deep Dream, extend Deep Dream w/ regularization.  Stylize images or synthesize new images with painterly or hallucinated aesthetics of another image. | [lecture-4.ipynb](session-4/lecture-4.ipynb) | [session-4.ipynb](session-4/session-4.ipynb) |
+|5| **[Generative Models](session-5)** | Build a Generative Adversarial Network and extend it with a Variational Autoencoder.  Use the latent space of this network to perform latent arithmetic.  Build a character level Recurrent Neural Network using LSTMs.  Understand different ways of inferring with Recurrent Networks.  | [lecture-5.ipynb](session-5/lecture-5.ipynb) | [session-5-part-1.ipynb](session-5/session-5-part-1.ipynb), [session-5-part-2.ipynb](session-5/session-5-part-2.ipynb) |
 
 <a name="installation-preliminaries"></a>
 # Installation Preliminaries
@@ -55,6 +53,7 @@ This github contains lecture transcripts from the Kadenze videos and homeworks c
 - [Navigating to Notebook](#navigating-to-notebook)
 - [Installing Python Packages](#installing-python-packages)
 - [CUDA/GPU instructions](#cudagpu-instructions)
+- [CUDA/GPU instructions for MacOS](#cudagpu-mac)
 - [Testing it](#testing-it)
 - [Troubleshooting](#troubleshooting)
 
@@ -78,20 +77,16 @@ https://www.docker.com/products/docker-toolbox
 
 With this installed, you'll then need to run the "Docker Quickstart Terminal" which will launch a Terminal environment running on a virtual Linux machine on your computer. A virtual machine is basically an emulation of another machine. This is important because we'll use this machine to run Linux and install all of the necessary libraries for running Tensorflow.
 
-Note, if you have trouble launching the Docker Quickstart Terminal because you have "Hyper-V", try one of the following, as suggested by Danilo Gasques:
+Note, if you have trouble launching the Docker Quickstart Terminal because you have "Hyper-V", please instead try using https://docs.docker.com/docker-for-windows/.  Then launch the newly installed "Docker CLI" program.
 
-1) [Setting up a Windows boot option to run without Hyper-V](http://www.hanselman.com/blog/SwitchEasilyBetweenVirtualBoxAndHyperVWithABCDEditBootEntryInWindows81.aspx)
-
-2) [Running Docker on Windows with Hyper-V installed](http://jayvilalta.com/blog/2016/04/28/installing-docker-toolbox-on-windows-with-hyper-v-installed/)
-
-Once the Docker Quickstart Terminal is launched, run the following command (ignoring the `$` sign at the beginning of each line, which just denote that each line is a terminal command that you should type out exactly and then hit ENTER afterwards):
+Once the Terminal is launched, either via Docker CLI or Docker Quickstart Terminal, run the following command (ignoring the `$` sign at the beginning of each line, which just denote that each line is a terminal command that you should type out exactly and then hit ENTER afterwards):
 
 ```shell
 $ cd
 $ docker-machine ip
 ```
 
-You should see your virtual machine's IP address as a result of the last command.  This is the location of your virtual machine.  <b>NOTE THIS IP ADDRESS</b>, as we'll need it in a second.  
+If you are using Docker Toolbox, you should see your virtual machine's IP address as a result of the last command.  This is the location of your virtual machine.  <b>NOTE THIS IP ADDRESS</b>, as we'll need it in a second.  If you are using "Docker for Windows" instead, then you won't need this IP as we'll just use "localhost".
 
 This next command will move to your Windows home directory, then create a new directory called "tensorflow", and then print out what the full path to that directory is.  PLEASE NOTE DOWN THIS DIRECTORY.  This is where everything will happen, and I'll explain that in a minute.
 
@@ -104,15 +99,15 @@ $ echo /$(pwd)/tensorflow
 Now run the following command, which will download about ~530 MB containing everything we need to run tensorflow, python, and jupyter notebook (again, ignore the "$" at the beginning of the line only)!
 
 ```shell
-$ docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd)/tensorflow:/notebooks --name tf pkmital/tf.0.9.0-py.3.4
+$ docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd)/tensorflow:/notebooks --name tf pkmital/tensorflow-python3-jupyter
 ```
 
-What this is doing is first creating a directory called tensorflow in the home directory, wherever that may be for your computer.  The echo command that we just ran, and I asked you note down, is showing you exactly where that directory is.  So on your Windows machine, you will want to put files inside this directory only when coding w/ Tensorflow.  We will use Docker to mirror that directory on a virutal machine which has everything necessary for us to code in Python and Tensorflow.  _Whatever is in that directory will be mirrored on the virtual machine's directory under `/notebooks`._
+What this is doing is first creating a directory called tensorflow in the home directory, wherever that may be for your computer.  The echo command that we just ran, and I asked you note down, is showing you exactly where that directory is.  So on your Windows machine, you will want to put files inside this directory only when coding w/ Tensorflow.  We will use Docker to mirror that directory on a virtual machine which has everything necessary for us to code in Python and Tensorflow.  _Whatever is in that directory will be mirrored on the virtual machine's directory under `/notebooks`._
 
 You can also try running the docker run command with any other directory. For instance:
 
 ```shell
-$ docker run -it -p 8888:8888 -p 6006:6006 -v /Users/YOURUSERNAME/Desktop:/notebooks --name tf pkmital/tf.0.9.0-py.3.4
+$ docker run -it -p 8888:8888 -p 6006:6006 -v /Users/YOURUSERNAME/Desktop:/notebooks --name tf pkmital/tensorflow-python3-jupyter
 ```
 
 Which would mean that your Desktop is where you can move files around so that on the virtual machine, you can interact with them under the `/notebooks`directory.
@@ -120,7 +115,7 @@ Which would mean that your Desktop is where you can move files around so that on
 For OSX users, if you are installing Docker because you had installation problems using Anaconda and pip, you would instead write the following command:
 
 ```shell
-$ docker run -it -p 8888:8888 -p 6006:6006 -v $(pwd)/Desktop/tensorflow:/notebooks --name tf pkmital/tf.0.9.0-py.3.4
+$ docker run -it -p 8888:8888 -p 6006:6006 -v $(pwd)/Desktop/tensorflow:/notebooks --name tf pkmital/tensorflow-python3-jupyter
 ```
 
 This command will download everything you need to run Tensorflow on your virtual machine.
@@ -176,7 +171,7 @@ $ pip3 install ipython[notebook]
 $ jupyter notebook
 ```
 
-If you run into issues that say something such as: 
+If you run into issues that say something such as:
 
 ```
 [W 20:37:40.543 NotebookApp] Kernel not found: None
@@ -200,7 +195,7 @@ $ jupyter notebook &
 
 Note on Virtual versus Windows Directories:
 
-This is tricky to grasp, mostly because I didn't explain it. Docker is "virtual" computer running inside your computer. It has its own filesystem and its own directories. So you can't reference your Windows machine's directories inside this machine. When you first ran docker (e.g. `$ docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd)/tensorflow:/notebooks --name tf pkmital/tf.0.9.0-py.3.4`) it included as part of its command: `-v /$(pwd)/tensorflow:/notebooks`. What that was doing is "mirroring" a directory on your Windows machine inside your Virtual machine. So whatever was in your Windows machine under the directory `/$(pwd)/tensorflow` would appear in the Virtual machine under `/notebooks`. That Windows directory is likely `/Users/<YOURUSERNAME>/tensorflow`. So _ONLY_ inside that directory, create it if it doesn't exist, should you put files in order to access it on the Virtual machine.
+This is tricky to grasp, mostly because I didn't explain it. Docker is "virtual" computer running inside your computer. It has its own filesystem and its own directories. So you can't reference your Windows machine's directories inside this machine. When you first ran docker (e.g. `$ docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd)/tensorflow:/notebooks --name tf pkmital/tensorflow-python3-jupyter`) it included as part of its command: `-v /$(pwd)/tensorflow:/notebooks`. What that was doing is "mirroring" a directory on your Windows machine inside your Virtual machine. So whatever was in your Windows machine under the directory `/$(pwd)/tensorflow` would appear in the Virtual machine under `/notebooks`. That Windows directory is likely `/Users/<YOURUSERNAME>/tensorflow`. So _ONLY_ inside that directory, create it if it doesn't exist, should you put files in order to access it on the Virtual machine.
 
 So let's say your Username was "pkmital". Then your home directory would be `/Users/pkmital`, and you would have mirrored `/Users/pkmital/tensorflow` on your Windows Machine to the Virtual machine under `/notebook`. Now let's say I create a directory `/Users/pkmital/tensorflow/images` on my Windows Machine, and then put a bunch of png files in there. I will then see them in my Virtual machine under `/notebook/images`.  If I put the CADL repository inside `/Users/pkmital/tensorflow`, then I should have `/Users/pkmital/tensorflow/CADL/session-1/session-1.ipynb` and on the Virtual machine, it will be in `/notebooks/CADL/session-1/session-1.ipynb` - From this notebook, running on the virtual machine, accessed with Jupyter Notebook, I would access my images like so:
 
@@ -274,19 +269,19 @@ This should get you all of the libraries we need for the course, EXCEPT for tens
 ### Ubuntu/Linux 64-bit for Python 3.4
 
 ```shell
-$ pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0-cp34-cp34m-linux_x86_64.whl
+$ pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc1-cp34-cp34m-linux_x86_64.whl
 ```
 
 ### Ubuntu/Linux 64-bit for Python 3.5
 
 ```shell
-$ pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0-cp35-cp35m-linux_x86_64.whl
+$ pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc1-cp35-cp35m-linux_x86_64.whl
 ```
 
 ### OSX for Python 3.4 or Python 3.5
 
 ```shell
-$ pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0-py3-none-any.whl
+$ pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0rc1-py3-none-any.whl
 ```
 
 ### Other Linux/OSX varieties
@@ -312,7 +307,74 @@ To confirm it worked, try running:
 $ python3 -c 'import tensorflow as tf; print(tf.__version__)'
 ```
 
-You should see 0.9.0 be printed.
+You should see 0.9.0 or 0.10.0 or 0.11.0rc1 printed, depending on which version you have installed.
+
+
+<a name="cudagpu-mac"></a>
+## CUDA/GPU instructions for MacOS
+
+When your Mac is equipped with a NVidia graphics card, you can use the GPU for computing with Tensorflow. GPU enabled computing is not supported for Macs with ATI or Intel graphics cards. 
+
+If you have a previous cpu installation of tensorflow, uninstall it first:
+
+```
+$ pip3 uninstall tensorflow
+```
+
+Using homebrew, install the following packages:
+
+```
+$ brew install coreutils
+$ brew tap caskroom/cask
+$ brew cask install cuda
+```
+Once you have the CUDA Toolkit installed you will need to setup the required environment variables by adding the 
+following to your `~/.profile`:
+```
+export CUDA_HOME=/usr/local/cuda
+export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
+export PATH="$CUDA_HOME/bin:$PATH"
+```
+Tensorflow needs the library libcuda.1.dylib, so we have to create an additional symbolic link:
+```
+sudo ln -sf /usr/local/cuda/lib/libcuda.dylib /usr/local/cuda/lib/libcuda.1.dylib
+```
+Finally, you will also want to install the **CUDA Deep Neural Network** (cuDNN v5) library which currently requires an 
+[_Accelerated Computing Developer Program_](https://developer.nvidia.com/cudnn) account. Once you have it downloaded 
+locally, you can unzip and move the header and libraries to your local CUDA Toolkit folder:
+```
+$ sudo mv include/cudnn.h /Developer/NVIDIA/CUDA-8.0/include/
+$ sudo mv lib/libcudnn* /Developer/NVIDIA/CUDA-8.0/lib
+$ sudo ln -s /Developer/NVIDIA/CUDA-8.0/lib/libcudnn* /usr/local/cuda/lib/
+```
+Then, finally, install tensorflow with GPU support with:
+```
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow_gpu-0.12.0rc0-py3-none-any.whl`
+$ pip3 install --ignore-installed --upgrade $TF_BINARY_URL
+```
+
+According to the instructions of the TensorFlow website, this should work. However, on MacOS 10.11 (El Capitan) and 
+above, the environment variable `DYLD_LIBRARY_PATH` is ignored, resulting in an error in the interactive python console 
+and JetBrains PyCharm IDE. The dynamic library `libcudart.8.0.dylib` fails to load. This
+is due to a new protection meganism in MacOS 10.11 and higher. El Capitan ships with a new OS X feature: System 
+Integrity Protection (SIP), also known as “rootless” mode. This reduces the attack surface for malware that relies on 
+modifying system files by preventing any user, whether with system administrator (“root”) privileges or not from 
+modifying a number of operating system directories and files.
+
+**Warning:** The point of SIP is to prevent malware and other unwanted modifications into system files. Consider whether 
+or not you want to dispense with this protection.
+Follow these steps to disable SIP:
+
+* Restart your Mac.
+* Before OS X starts up, hold down Command-R and keep it held down until you see an Apple icon and a progress bar. Release. This boots you into Recovery.
+* From the Utilities menu, select Terminal.
+* At the prompt type exactly the following and then press Return: `csrutil disable`
+* Terminal should display a message that SIP was disabled.
+* From the  menu, select Restart.
+
+You can re-enable SIP by following the above steps, but using `csrutil enable` instead.
+
+
 
 <a name="troubleshooting"></a>
 ## Troubleshooting
@@ -436,6 +498,19 @@ SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed
 ```
 
 Solution: Download the wheel manually via curl or wget, and pip install locally.
+
+### Jupyter Notebook Kernel is always busy (Windows)
+If your have installed Docker Toolbox on Windows but your jupyter notebook doesn't run properly (the notebook kernel keeps busy all the time when you open any file) then you might need to try different browsers (One guy tried Edge and it solved his problem after struggling for long time on Chrome/Firefox).
+
+And you should also enable port forwarding by:
+
+1. Open VirtualBox
+2. Click on your default docker image.
+3. Click Settings.
+4. Click Network.
+5. Click forward port.
+6. Add a new rule named jupyter with host ip=127.0.0.1 and host/guess port=8888
+7. Now you should be able to browse your notebook app via localhost:8888 (instead of having to browse 192.168.xx.xx:8888)
 
 ### Something Else!
 

@@ -74,7 +74,7 @@ def create_input_pipeline(files, batch_size, n_epochs, shape, crop_shape=None,
     else:
         rsz_shape = [int(crop_shape[0] / crop_factor),
                      int(shape[1] / shape[0] * crop_shape[1] / crop_factor)]
-    rszs = tf.image.resize_images(imgs, rsz_shape[0], rsz_shape[1])
+    rszs = tf.image.resize_images(imgs, rsz_shape)
     crops = (tf.image.resize_image_with_crop_or_pad(
         rszs, crop_shape[0], crop_shape[1])
         if crop_shape is not None
@@ -360,8 +360,10 @@ class Dataset(object):
         self.train_idxs = idxs[:round(split[0] * n_idxs)]
         self.valid_idxs = idxs[len(self.train_idxs):
                                len(self.train_idxs) + round(split[1] * n_idxs)]
-        self.test_idxs = idxs[len(self.valid_idxs):
-                              len(self.valid_idxs) + round(split[2] * n_idxs)]
+        self.test_idxs = idxs[
+            (len(self.valid_idxs) + len(self.train_idxs)):
+            (len(self.valid_idxs) + len(self.train_idxs)) +
+             round(split[2] * n_idxs)]
 
     @property
     def X(self):
